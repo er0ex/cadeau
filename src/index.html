@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Для тебя ✨</title>
+<meta name="theme-color" content="#04060f" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Для тебя" />
+
+<link rel="manifest" href="./manifest.json" />
+<link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png" />
+<link rel="apple-touch-icon" href="./icon-192.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+
+<script src="https://cdn.jsdelivr.net/npm/d3@5.16.0/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-celestial@0.7.35/celestial.min.js"></script>
+</head>
+<body>
+
+<section class="terminal" id="terminal">
+  <div class="terminal-window">
+    <div class="terminal-bar">
+      <span class="dot dot--red"></span>
+      <span class="dot dot--yellow"></span>
+      <span class="dot dot--green"></span>
+      <span class="terminal-title">love@forever — ~/us</span>
+    </div>
+    <div class="terminal-body" id="terminal-output"></div>
+  </div>
+  <p class="terminal-hint" id="terminal-hint">нажми, чтобы пропустить</p>
+</section>
+
+<main class="sky-screen hidden" id="sky-screen">
+  <div id="celestial-map"></div>
+  <div class="aurora"></div>
+  <div class="moon" id="moon"></div>
+
+  <svg class="heart-constellation" id="heart-constellation" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet">
+    <polyline id="heart-lines" fill="none" stroke="rgba(255,138,184,0.55)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    <g id="heart-stars"></g>
+    <text id="heart-label" x="200" y="378" text-anchor="middle"
+          fill="rgba(255,138,184,0.85)"
+          font-family="'JetBrains Mono', monospace"
+          font-size="14" letter-spacing="6">US</text>
+  </svg>
+
+  <div class="content">
+    <p class="eyebrow">мы вместе уже</p>
+    <div class="big">
+      <span class="num" id="days">0</span>
+      <span class="unit" id="unit">дней</span>
+    </div>
+    <div class="clock">
+      <span id="hours">00</span><i>:</i><span id="minutes">00</span><i>:</i><span id="seconds">00</span>
+    </div>
+    <p class="start-date">с <span id="start-date"></span></p>
+    <p class="message" id="message"></p>
+  </div>
+</main>
+
+<audio id="bg-music" loop preload="none">
+  <source src="./audio/amour-plastique.mp3" type="audio/mpeg" />
+</audio>
+
+<button class="music-btn" id="music-btn" aria-label="Играть музыку">
+  <svg id="music-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+    <path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/>
+  </svg>
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>
